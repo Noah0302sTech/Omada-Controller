@@ -4,12 +4,14 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 
 
-## Automatic Installation of Omada-Controller-Software in Debian
+## Features:
+Automatic Installation of Omada-Controller-Software
+Automatic Installation of Java-Updates (Optional)
 
 
 
 ## How to Install:
-Log into your clean Debian-System
+SSH into your *clean* Debian-Server
 
 ```bash
 # Move to Home-Directory
@@ -44,6 +46,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 
 ## Support me:
 Do you like what I do? If the answer is yes, then you can fuel my Coffee-Addiction here!
+
 <a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="250" height="250"></a>
 
 This really is not necessary, as I do this a a hobby! BUT I would greatly appreciate it, if you were to support me.
