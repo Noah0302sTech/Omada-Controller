@@ -159,13 +159,15 @@
 
 		#--- Refresh Packages
 			start_spinner "Aktualisiere Package-Listen, bitte warten..."
-				apt update > /dev/null 2>&1
+				aptUpdateVar=$(apt update > /dev/null 2>&1)
 			stop_spinner $?
+			echo aptUpdateVar
 
 		#--- Install OpenJDK-8-Headless
 			start_spinner "Installiere OpenJDK-8-JRE-Headless, bitte warten..."
-				DEBIAN_FRONTEND=noninteractive apt install openjdk-8-jre-headless -y > /dev/null 2>&1
+				javaUpdateOutput=$(DEBIAN_FRONTEND=noninteractive apt-get install openjdk-8-jre-headless -y 2>&1)
 			stop_spinner $?
+			echo javaUpdateOutput
 
 		#--- Remove Sid-Main-Repo
 			#-		Note: I remove the Repo here after installing it, so Debian does not upgrade all other Packages to the Unstable-Release.
