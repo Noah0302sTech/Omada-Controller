@@ -219,7 +219,7 @@ alias omadaJavaUpdaterExecute='sudo bash $folder1Sub1File1Path'
 		start_spinner "Passe MOTD an..."
 			echo "-----
 Omada:
-Java-Updater Logs:				omadaJavaUpdaterCC
+Java-Updater Logs:		omadaJavaUpdaterCC
 Java-Updater manual Execution:	omadaJavaUpdaterExecute
 -----" >> /etc/motd
 		stop_spinner $?
