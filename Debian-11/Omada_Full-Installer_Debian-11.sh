@@ -116,6 +116,8 @@
 						folder1Sub2File1="Omada_Java-Updater-Installer_Debian-11.sh"
 				folder2="Cron-Check"
 					folder2File1="Cron-Check.txt"
+				folder3="Omada-Package"
+					folder3File1="Omada_SDN_Controller_v5.9.31_Linux_x64.deb"
 
 		#Omada-Controller
 		repoVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar"
@@ -135,6 +137,9 @@
 				#Cron-Check
 				folder2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2"
 					folder2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2/$folder2File1"
+				#Omada-Package
+				folder3Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3"
+					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -172,27 +177,6 @@
 			start_spinner "Entferne Sid-Main-Repo, bitte warten..."
 				sed -i '\%^deb http://deb.debian.org/debian/ sid main%d' /etc/apt/sources.list > /dev/null 2>&1
 			stop_spinner $?
-
-		#--- Install Java-Updater
-			while IFS= read -n1 -r -p "Möchtest du Java-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
-			case $REPLY in
-				y)	echo
-					#--- Curl Java-Updater
-						start_spinner "Installiere Java-Updater..."
-							wget $javaUpdaterUrl > /dev/null 2>&1
-						stop_spinner $?
-						chmod +x Java-Updater-Installer-Debian-Noah0302sTech.sh
-						bash ./Java-Updater-Installer-Debian-Noah0302sTech.sh
-					break;;
-
-				n)  echo
-					break;;
-
-				*)  echo
-					echo "Antoworte mit y oder n";;
-
-			esac
-			done
 
 		echoEnd
 
@@ -277,6 +261,26 @@
 
 
 
+	#----- Install Java-Updater
+		while IFS= read -n1 -r -p "Möchtest du Java-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+		case $REPLY in
+			y)	echo
+				#--- Curl Java-Updater
+					start_spinner "Installiere Java-Updater..."
+						wget $javaUpdaterUrl > /dev/null 2>&1
+					stop_spinner $?
+					chmod +x Java-Updater-Installer-Debian-Noah0302sTech.sh
+					bash ./Java-Updater-Installer-Debian-Noah0302sTech.sh
+				break;;
+
+			n)  echo
+				break;;
+
+			*)  echo
+				echo "Antoworte mit y oder n";;
+
+		esac
+		done
 
 
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -338,6 +342,13 @@
 						else
 							echo "Ordner $folder2Path bereits vorhanden!"
 						fi
+
+					#--- Folder3
+						if [ ! -d $folder3Path ]; then
+							mkdir $folder3Path > /dev/null 2>&1
+						else
+							echo "Ordner $folder3Path bereits vorhanden!"
+						fi
 	stop_spinner $?
 
 #----- Move Files
@@ -368,5 +379,12 @@
 				mv /home/$SUDO_USER/$folder2File1 $folder2File1Path > /dev/null 2>&1
 			else
 				echo "Die Datei $folder2File1Path ist bereits vorhanden!"
+			fi
+
+		#--- Folder3File1
+			if [ ! -f $folder3File1Path ]; then
+				mv /home/$SUDO_USER/$folder3File1 $folder3File1Path > /dev/null 2>&1
+			else
+				echo "Die Datei $folder3File1Path ist bereits vorhanden!"
 			fi
 	stop_spinner $?
