@@ -262,6 +262,7 @@
 
 
 	#----- Install Java-Updater
+		echo "----- Java-Updater -----"
 		while IFS= read -n1 -r -p "Möchtest du Java-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 		case $REPLY in
 			y)	echo
