@@ -154,18 +154,19 @@
 	echo "----- Update-Script -----"
 
 	#--- Download Java-Update-Executer
-		start_spinner "Installiere Java-Updater..."
+		start_spinner "Downloade Java-Updater-Executer..."
 			wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Executer/Omada_Java-Updater-Executer_Debian-11.sh > /dev/null 2>&1
 		stop_spinner $?
 
 	#-- Modify Debug for Java-Update-Executer
-	echo "
+		start_spinner "Modify Java-Updater-Executer..."
+			echo "
 #Debug
 	echo "'Java-Updater Cron-Job ran @:'" >> $folder2File1Path
 	date >> $folder2File1Path
 	echo "'$javaUpdateOutput'" >> $folder2File1Path
 	echo '' >> $folder2File1Path" >> /home/$SUDO_USER/$folder1Sub1File1
-	stop_spinner $?
+		stop_spinner $?
 
 	#--- Make Java-Updater.sh executable
         start_spinner "Mache Java-Updater.sh ausführbar..."
