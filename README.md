@@ -10,7 +10,7 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 Possibility to choose the Version you desire
 
 ### Automatic Installation of Java-Updates (Optional)
-Possibility to modify the Update-Intervaö
+Possibility to modify the Update-Interval
 
 
 # How to Install
