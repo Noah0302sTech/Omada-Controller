@@ -111,7 +111,7 @@
 					fullInstaller="Omada_Full-Installer_Debian-11.sh"
 				folder1="Java-Updater"
 					folder1Sub1="Executer"
-						folder1Sub1File1="Omada_Java-Updater-Executer.sh_Debian-11.sh"
+						folder1Sub1File1="Omada_Java-Updater-Executer_Debian-11.sh"
 					folder1Sub2="Installer"
 						folder1Sub2File1="Omada_Java-Updater-Installer_Debian-11.sh"
 				folder2="Cron-Check"
@@ -133,7 +133,7 @@
 						folder1Sub1File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1/$folder1Sub1File1"
 					#Installer
 					folder1Sub2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub2"
-						folder1Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1/$folder1Sub2File1"
+						folder1Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub2/$folder1Sub2File1"
 				#Cron-Check
 				folder2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2"
 					folder2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2/$folder2File1"
