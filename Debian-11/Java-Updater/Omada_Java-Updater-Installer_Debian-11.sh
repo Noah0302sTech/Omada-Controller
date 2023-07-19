@@ -139,6 +139,7 @@
 
 
 #----- Create Java Update-Script
+	echo "----- Update-Script -----"
 	start_spinner "Erstelle Updater-Skript..."
 		#---Java-Update-Executer
 			touch /home/$SUDO_USER/$folder1Sub1File1
@@ -170,6 +171,7 @@
 
 
 #----- Create Crontab
+	echo "----- Cron-Job -----"
 	start_spinner "Erstelle Crontab..."
 		touch /etc/cron.d/Noah0302sTech_Omada-Controller_Debian-11_Java-Updater
 	stop_spinner $?
@@ -192,7 +194,8 @@ $cronVariable root $folder1Sub1File1Path" > /etc/cron.d/Noah0302sTech_Omada-Cont
 
 
 #----- Create Alias
-    if grep -q "^alias ccJavaUpdater=" /home/$SUDO_USER/.bashrc; then
+	echo "----- Bash-Alias -----"
+    if grep -q "^alias omadaJavaUpdaterCC=" /home/$SUDO_USER/.bashrc; then
 		echo "Der Alias existiert bereits in /home/$SUDO_USER/.bashrc"
 	else
 		start_spinner "Erstelle Alias..."
@@ -200,7 +203,8 @@ $cronVariable root $folder1Sub1File1Path" > /etc/cron.d/Noah0302sTech_Omada-Cont
 
 
 #Omada
-alias ccJavaUpdater='cat $folder2File1Path'
+alias omadaJavaUpdaterCC='cat $folder2File1Path'
+alias omadaJavaUpdaterExecute='sudo bash $folder1Sub1File1Path'
 "  >> /home/$SUDO_USER/.bashrc
 		stop_spinner $?
 	fi
@@ -208,13 +212,15 @@ alias ccJavaUpdater='cat $folder2File1Path'
 
 
 #----- Create MOTD
+	echo "----- MOTD -----"
 	if grep -q "^Omada" /etc/motd; then
 		echo "Der MOTD Eintrag exisitert bereits in /etc/motd"
 	else
 		start_spinner "Passe MOTD an..."
 			echo "-----
 Omada:
-Cron-Check Java-Updater:	ccJavaUpdater
+Java-Updater Logs:				omadaJavaUpdaterCC
+Java-Updater manual Execution:	omadaJavaUpdaterExecute
 -----" >> /etc/motd
 		stop_spinner $?
 	fi
