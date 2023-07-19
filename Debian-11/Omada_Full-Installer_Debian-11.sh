@@ -266,7 +266,7 @@
 		while IFS= read -n1 -r -p "Möchtest du Java-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 		case $REPLY in
 			y)	echo
-				#--- Curl Java-Updater
+				#--- WGET Java-Updater
 					start_spinner "Installiere Java-Updater..."
 						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
