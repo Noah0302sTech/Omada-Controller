@@ -12,7 +12,6 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 	│	├── Java-Updater
 	│	│	└── Java-Updater-Installer-Debian-Noah0302sTech.sh
 	│	└── Omada-Full-Installer-Deb11-Noah0302sTech.sh
-	├── .gitignore
 	├── LICENSE 
 	└── README.md
 
