@@ -93,26 +93,43 @@
 		echo
 
 	#----- Variables
-		javaUpdaterUrl="https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Omada/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh"
+		gitURL="https://github.com/Noah0302sTech/Omada-Controller"
 
-		folderVar=Omada
-			fullInstallerFolder=Omada-Full-Installer
-				fullInstaller=Omada-Full-Installer-Deb11-Noah0302sTech.sh
-			subFolderVar=Java-Updater
-				folder1=Updater-Installer
-					bashInstaller=Omada_Java-Updater-Installer_Debian-11.sh
-				folder2=Updater-Executer
-					updaterExecuter=Omada_Java-Updater-Executer.sh_Debian-11.sh
-				cronCheck=Cron-Check.txt
+		repoVar="Omada-Controller"
+			versionVar="Debian-11"
+				fullInstallerFolder="Full-Installer"
+					fullInstaller="Omada_Full-Installer_Debian-11.sh"
+				folder1="Java-Updater"
+					folder1Sub1="Executer"
+						folder1Sub1File1="Omada_Java-Updater-Executer.sh_Debian-11.sh"
+					folder1Sub2="Installer"
+						folder1Sub2File1="Omada_Java-Updater-Installer_Debian-11.sh"
+				folder2="Cron-Check"
+					folder2File1="Cron-Check.txt"
+				folder3="Omada-Package"
+					folder3File1="Omada_SDN_Controller_v5.9.31_Linux_x64.deb"
 
-		omadaFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar"
-			omadaFullInstallerFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$fullInstallerFolder"
-			javaUpdaterFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar"
-				updaterInstallerFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$folder1"
-					updaterInstallerPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$folder1/$bashInstaller"
-				updaterExecuterFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$folder2"
-					updaterExecuterPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$folder2/$updaterExecuter"
-				cronCheckPath="/home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$cronCheck"
+		#Omada-Controller
+		repoVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar"
+			#Debian-11
+			versionVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar"
+				#Full-Installer
+				fullInstallerFolderPath="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$fullInstallerFolder"
+					fullInstallerPath="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$fullInstallerFolder/$fullInstaller"
+				#Java-Updater
+				folder1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1"
+					#Executer
+					folder1Sub1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1"
+						folder1Sub1File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1/$folder1Sub1File1"
+					#Installer
+					folder1Sub2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub2"
+						folder1Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1/$folder1Sub2File1"
+				#Cron-Check
+				folder2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2"
+					folder2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder2/$folder2File1"
+				#Omada-Package
+				folder3Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3"
+					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -202,69 +219,7 @@ Cron-Check Java-Updater:	ccJavaUpdater
 
 
 
-#----- Move Files, if not called by Full-Installer
-	if [ -f "/home/$SUDO_USER/$fullInstaller" ]; then
-		echo "Called by $fullInstaller, not moving Files just yet!"
-	else
-				#----- Create Folders
-			start_spinner "Erstelle Verzeichnisse..."
-				#--- Noah0302sTech
-					if [ ! -d /home/$SUDO_USER/Noah0302sTech ]; then
-						mkdir /home/$SUDO_USER/Noah0302sTech > /dev/null 2>&1
-					else
-						echo "Ordner /home/$SUDO_USER/Noah0302sTech bereits vorhanden!"
-					fi
 
-					#--- Omada-Folder
-						if [ ! -d $omadaFolderPath ]; then
-							mkdir $omadaFolderPath > /dev/null 2>&1
-						else
-							echo "Ordner $omadaFolderPath bereits vorhanden!"
-						fi
-
-						#--- Java-Updater Folder
-							if [ ! -d $javaUpdaterFolderPath ]; then
-								mkdir $javaUpdaterFolderPath > /dev/null 2>&1
-							else
-								echo "Ordner $javaUpdaterFolderPath bereits vorhanden!"
-							fi
-
-							#--- Updater-Installer Folder
-								if [ ! -d $updaterInstallerFolderPath ]; then
-									mkdir $updaterInstallerFolderPath > /dev/null 2>&1
-								else
-									echo "Ordner $updaterInstallerFolderPath bereits vorhanden!"
-								fi
-
-							#--- Updater-Executer Folder
-								if [ ! -d $updaterExecuterFolderPath ]; then
-									mkdir $updaterExecuterFolderPath > /dev/null 2>&1
-								else
-									echo "Ordner $updaterExecuterFolderPath bereits vorhanden!"
-								fi
-			stop_spinner $?
-
-		#----- Move Files
-			start_spinner "Verschiebe Files..."
-					#--- Omada_Java-Updater-Installer_Debian-11.sh
-						if [ ! -f $updaterInstallerPath ]; then
-							mv /home/$SUDO_USER/$bashInstaller $updaterInstallerPath > /dev/null 2>&1
-						else
-							echo "Die Datei $updaterInstallerPath ist bereits vorhanden!"
-						fi
-
-					#--- Omada_Java-Updater-Executer.sh_Debian-11.sh
-						if [ ! -f $updaterExecuterPath ]; then
-							mv /home/$SUDO_USER/$updaterExecuter $updaterExecuterPath > /dev/null 2>&1
-						else
-							echo "Die Datei $updaterExecuterPath ist bereits vorhanden!"
-						fi
-
-					#--- Cron-Check.txt
-						if [ ! -f $cronCheckPath ]; then
-							mv /home/$SUDO_USER/$cronCheck $cronCheckPath > /dev/null 2>&1
-						else
-							echo "Die Datei $cronCheckPath ist bereits vorhanden!"
-						fi
-			stop_spinner $?
-	fi
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
