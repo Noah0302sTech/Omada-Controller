@@ -140,11 +140,13 @@
 
 #----- Create Java Update-Script
 	start_spinner "Erstelle Updater-Skript..."
-		touch /home/$SUDO_USER/$updaterExecuter
-		touch /home/$SUDO_USER/$cronCheck
-		echo "#Init after Install" > /home/$SUDO_USER/$cronCheck
-		echo "" >> /home/$SUDO_USER/$cronCheck
-		echo "#!/bin/bash
+		#---Java-Update-Executer
+			touch /home/$SUDO_USER/$folder1Sub1File1
+		#---Cron-Check
+			touch /home/$SUDO_USER/$folder2File1
+			echo "#Init after Install" > /home/$SUDO_USER/$folder2File1
+			echo "" >> /home/$SUDO_USER/$folder2File1
+			echo "#!/bin/bash
 #	Made by Noah0302sTech
 
 #Java Update
@@ -154,22 +156,22 @@
 	echo
 
 #Debug
-	echo "'Java-Updater Cron-Job ran @'" >> $cronCheckPath
-	date >> $cronCheckPath
-	echo "'$javaUpdateOutput'" >> $cronCheckPath
-	echo '' >> $cronCheckPath" > /home/$SUDO_USER/$updaterExecuter
+	echo "'Java-Updater Cron-Job ran @:'" >> $folder2File1Path
+	date >> $folder2File1Path
+	echo "'$javaUpdateOutput'" >> $folder2File1Path
+	echo '' >> $folder2File1Path" > /home/$SUDO_USER/$folder1Sub1File1
 	stop_spinner $?
 
 	#--- Make Java-Updater.sh executable
         start_spinner "Mache Java-Updater.sh ausführbar..."
-            chmod +x /home/$SUDO_USER/$updaterExecuter
+            chmod +x /home/$SUDO_USER/$folder1Sub1File1
         stop_spinner $?
 
 
 
 #----- Create Crontab
 	start_spinner "Erstelle Crontab..."
-		touch /etc/cron.d/java-Updater-Noah0302sTech
+		touch /etc/cron.d/Noah0302sTech_Omada-Controller_Debian-11_Java-Updater
 	stop_spinner $?
 
 	#--- Variables
@@ -181,9 +183,10 @@
 	
 	#--- Adjust Schedule
 		start_spinner "Passe Crontab an..."
-			echo "#Update for Java by Noah0302sTech
+			echo "#	Made by Noah0302sTech
+#Update Java
 "'PATH="/usr/local/bin:/usr/bin:/bin"'"
-$cronVariable root $updaterExecuterPath" > /etc/cron.d/java-Updater-Noah0302sTech
+$cronVariable root $folder1Sub1File1Path" > /etc/cron.d/Noah0302sTech_Omada-Controller_Debian-11_Java-Updater
 		stop_spinner $?
 
 
@@ -197,7 +200,7 @@ $cronVariable root $updaterExecuterPath" > /etc/cron.d/java-Updater-Noah0302sTec
 
 
 #Omada
-alias ccJavaUpdater='cat $cronCheckPath'
+alias ccJavaUpdater='cat $folder2File1Path'
 "  >> /home/$SUDO_USER/.bashrc
 		stop_spinner $?
 	fi
@@ -209,10 +212,10 @@ alias ccJavaUpdater='cat $cronCheckPath'
 		echo "Der MOTD Eintrag exisitert bereits in /etc/motd"
 	else
 		start_spinner "Passe MOTD an..."
-			echo "
-Omada
+			echo "-----
+Omada:
 Cron-Check Java-Updater:	ccJavaUpdater
-" >> /etc/motd
+-----" >> /etc/motd
 		stop_spinner $?
 	fi
 
