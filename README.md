@@ -1,11 +1,6 @@
 ### Omada-Controller
-Automatic Installation of Omada-Controller-Software in Debian
-
-
-
-PLEASE WAIT FOR OFFICIAL RELEASES!
-
-
+## Automatic Installation of Omada-Controller-Software in Debian
+# PLEASE WAIT FOR OFFICIAL RELEASES!
 
 This is a Merge from my old Repo (https://github.com/Noah0302sTech/Bash-Skripte/tree/master)
 
@@ -18,9 +13,15 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 
 	Omada-Controller
-	├── Deian-11
+	├── Debian-11
+	│	├── Cron-Check
+	│	│	└── Cron-Check.txt
+	│	├── Full-Installer
+	│	│	└── Installer
 	│	├── Java-Updater
 	│	│	└── Java-Updater-Installer-Debian-Noah0302sTech.sh
+	│	├── Omada-Package
+	│	│	└── Package
 	│	└── Omada-Full-Installer-Deb11-Noah0302sTech.sh
 	├── LICENSE 
 	└── README.md
@@ -33,7 +34,7 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 
 Do you like what I do? If the answer is yes, then you can fuel my Coffee-Addiction here!
-<a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="400" height="400"></a>
+<a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="250" height="250"></a>
 
 
 
