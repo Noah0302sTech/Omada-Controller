@@ -1,8 +1,7 @@
-### Omada-Controller
-## Automatic Installation of Omada-Controller-Software in Debian
-# PLEASE WAIT FOR OFFICIAL RELEASES!
-
+# Omada-Controller
 This is a Merge from my old Repo (https://github.com/Noah0302sTech/Bash-Skripte/tree/master)
+## Automatic Installation of Omada-Controller-Software in Debian
+### PLEASE WAIT FOR OFFICIAL RELEASES!
 
 If you have any Issues, or Questions, please do not hesitate to send me a Message!
 
@@ -19,13 +18,16 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 	│	├── Full-Installer
 	│	│	└── Installer
 	│	├── Java-Updater
+	│	│	├── Executer
+	│	│	│	└── Executer
+	│	│	├── Installer
+	│	│	│	└── Installer
 	│	│	└── Java-Updater-Installer-Debian-Noah0302sTech.sh
 	│	├── Omada-Package
 	│	│	└── Package
 	│	└── Omada-Full-Installer-Deb11-Noah0302sTech.sh
 	├── LICENSE 
 	└── README.md
-
 
 
 
