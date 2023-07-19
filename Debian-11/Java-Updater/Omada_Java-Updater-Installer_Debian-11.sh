@@ -173,6 +173,8 @@
             chmod +x /home/$SUDO_USER/$folder1Sub1File1
         stop_spinner $?
 
+	echoEnd
+
 
 
 #----- Create Crontab
@@ -180,6 +182,11 @@
 	start_spinner "Erstelle Crontab..."
 		touch /etc/cron.d/Noah0302sTech_Omada-Controller_Debian-11_Java-Updater
 	stop_spinner $?
+
+	#--- Create Cron-Check
+		start_spinner "Erstelle Cron-Check.txt..."
+			touch /home/$SUDO_USER/$folder2File1
+		stop_spinner $?
 
 	#--- Variables
 		cronVariable="0 0 * * 1"
@@ -195,6 +202,8 @@
 "'PATH="/usr/local/bin:/usr/bin:/bin"'"
 $cronVariable root $folder1Sub1File1Path" > /etc/cron.d/Noah0302sTech_Omada-Controller_Debian-11_Java-Updater
 		stop_spinner $?
+	
+	echoEnd
 
 
 
@@ -214,6 +223,8 @@ alias omadaJavaUpdaterExecute='sudo bash $folder1Sub1File1Path'
 		stop_spinner $?
 	fi
 
+	echoEnd
+
 
 
 #----- Create MOTD
@@ -229,6 +240,8 @@ Java-Updater manual Execution:	omadaJavaUpdaterExecute
 -----" >> /etc/motd
 		stop_spinner $?
 	fi
+
+	echoEnd
 
 
 
