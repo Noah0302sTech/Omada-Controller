@@ -42,7 +42,7 @@ https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Contro
 	│	│	└── Installer
 	│	├── Java-Updater
 	│	│	├── Executer
-	│	│	│	└── Executer
+	│	│	│	└── Omada_Java-Updater-Executer_Debian-11.sh
 	│	│	├── Installer
 	│	│	│	└── Installer
 	│	│	└── Java-Updater-Installer-Debian-Noah0302sTech.sh
