@@ -267,7 +267,7 @@
 		case $REPLY in
 			y)	echo
 				#--- WGET Java-Updater
-					start_spinner "Installiere Java-Updater..."
+					start_spinner "Downloade Java-Updater-Installer..."
 						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
 					chmod +x Omada_Java-Updater-Installer_Debian-11.sh
