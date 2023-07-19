@@ -7,22 +7,21 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 ## Features
 ### Automatic Installation of Omada-Controller-Software
-	-Possibility to choose the Version you desire
+Possibility to choose the Version you desire
 
 ### Automatic Installation of Java-Updates (Optional)
-	-Possibility to modify the Update-Intervaö
+Possibility to modify the Update-Intervaö
 
 
 ## How to Install
 SSH into your *clean* Debian-Server:
-
+### Move to Home-Directory
 ```bash
-# Move to Home-Directory
 cd
-
-# Download Full-Installer-Script and execute it (Need Sudo-Permissions)
+```
+### Download Full-Installer-Script and execute it (Need Sudo-Permissions)
+```bash
 wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
-
 ```
 
 
