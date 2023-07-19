@@ -5,7 +5,7 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 
 
-## Features
+# Features
 ### Automatic Installation of Omada-Controller-Software
 Possibility to choose the Version you desire
 
@@ -13,7 +13,7 @@ Possibility to choose the Version you desire
 Possibility to modify the Update-Intervaö
 
 
-## How to Install
+# How to Install
 SSH into your *clean* Debian-Server:
 ### Move to Home-Directory
 ```bash
@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 ```
 
 
-## Folder-Structure
+# Folder-Structure
 	Omada-Controller
 	├── Debian-11
 	│	├── Cron-Check
@@ -46,7 +46,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 
 
 
-## Support me
+# Support me
 Do you like what I do? If the answer is yes, then you can fuel my Coffee-Addiction here!
 
 <a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="250" height="250"></a>
