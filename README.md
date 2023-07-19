@@ -16,7 +16,7 @@ Possibility to modify the Update-Intervaö
 # How to Install
 ### SSH into your *clean* Debian-Server:
 ```bash
-ssh YOURUSERNAME@YOURIP
+ssh username@ip
 ```
 ### Move to Home-Directory
 ```bash
