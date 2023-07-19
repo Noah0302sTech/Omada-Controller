@@ -164,6 +164,7 @@
 #Debug
 	echo "'Java-Updater Cron-Job ran @:'" >> $folder2File1Path
 	date >> $folder2File1Path
+	echo "'$aptUpdateVar'" >> $folder2File1Path
 	echo "'$javaUpdateOutput'" >> $folder2File1Path
 	echo '' >> $folder2File1Path" >> /home/$SUDO_USER/$folder1Sub1File1
 		stop_spinner $?
@@ -186,6 +187,8 @@
 	#--- Create Cron-Check
 		start_spinner "Erstelle Cron-Check.txt..."
 			touch /home/$SUDO_USER/$folder2File1
+			echo "#Init
+" > /home/$SUDO_USER/$folder2File1
 		stop_spinner $?
 
 	#--- Variables
