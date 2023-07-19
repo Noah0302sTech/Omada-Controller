@@ -42,7 +42,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 	│	│	│	└── Installer
 	│	│	└── Java-Updater-Installer-Debian-Noah0302sTech.sh
 	│	├── Omada-Package
-	│	│	└── Package
+	│	│	└── Download-Links.txt
 	│	└── Omada-Full-Installer-Deb11-Noah0302sTech.sh
 	├── LICENSE 
 	└── README.md

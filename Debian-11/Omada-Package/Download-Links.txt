@@ -1,0 +1,13 @@
+TP-Link Website:
+https://www.tp-link.com/de/support/download/omada-software-controller/
+
+
+
+v5.9.31
+https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb
+
+v5.9.9
+https://static.tp-link.com/upload/software/2023/202302/20230227/Omada_SDN_Controller_v5.9.9_Linux_x64.deb
+
+v5.8.4
+https://static.tp-link.com/upload/software/2023/202301/20230130/Omada_SDN_Controller_v5.8.4_Linux_x64.deb
