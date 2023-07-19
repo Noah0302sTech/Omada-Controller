@@ -1,6 +1,12 @@
 ### Omada-Controller
 Automatic Installation of Omada-Controller-Software in Debian
 
+
+
+PLEASE WAIT FOR OFFICIAL RELEASES!
+
+
+
 This is a Merge from my old Repo (https://github.com/Noah0302sTech/Bash-Skripte/tree/master)
 
 If you have any Issues, or Questions, please do not hesitate to send me a Message!
