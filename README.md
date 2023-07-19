@@ -1,12 +1,15 @@
 # Omada-Controller
 This is a Merge from my old Repo (https://github.com/Noah0302sTech/Bash-Skripte/tree/master)
-## Automatic Installation of Omada-Controller-Software in Debian
-### PLEASE WAIT FOR OFFICIAL RELEASES!
-
 If you have any Issues, or Questions, please do not hesitate to send me a Message!
 
+
+
+## Automatic Installation of Omada-Controller-Software in Debian
+
+
+
 ## How to Install:
--Log into your clean Debian-System
+Log into your clean Debian-System
 
 ```bash
 # Move to Home-Directory
@@ -18,6 +21,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 ```
 
 
+## Folder-Structure:
 	Omada-Controller
 	├── Debian-11
 	│	├── Cron-Check
@@ -38,6 +42,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 
 
 
+## Support me:
 Do you like what I do? If the answer is yes, then you can fuel my Coffee-Addiction here!
 <a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="250" height="250"></a>
 
