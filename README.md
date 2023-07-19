@@ -6,10 +6,10 @@ If you have any Issues, or Questions, please do not hesitate to send me a Messag
 
 
 ## Features
-Automatic Installation of Omada-Controller-Software
+### Automatic Installation of Omada-Controller-Software
 	-Possibility to choose the Version you desire
 
-Automatic Installation of Java-Updates (Optional)
+### Automatic Installation of Java-Updates (Optional)
 	-Possibility to modify the Update-Intervaö
 
 
@@ -47,7 +47,7 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 
 
 
-### Support me
+## Support me
 Do you like what I do? If the answer is yes, then you can fuel my Coffee-Addiction here!
 
 <a href="https://www.buymeacoffee.com/Noah0302sTech"><img src="https://drive.google.com/uc?id=1rTwdjTiR0sywyDaTxLUNZG1fFgVrlK34" alt="Buy Me A Coffee" width="250" height="250"></a>
