@@ -1,6 +1,6 @@
 #!/bin/bash
 #	Made by Noah0302sTech
-#	chmod +x Java-Updater-Installer-Debian-Noah0302sTech.sh && sudo bash Java-Updater-Installer-Debian-Noah0302sTech.sh
+#	chmod +x Omada_Java-Updater-Installer_Debian-11.sh && sudo bash Omada_Java-Updater-Installer_Debian-11.sh
 
 #---------- Initial Checks & Functions
 	#----- Check for administrative privileges
@@ -87,22 +87,22 @@
 
 	#----- Refresh Packages
 		start_spinner "Aktualisiere Package-Listen..."
-			apt update -y > /dev/null 2>&1
+			apt update > /dev/null 2>&1
 		stop_spinner $?
 		echo
 		echo
 
 	#----- Variables
-		javaUpdaterUrl="https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Omada/Java-Updater/Java-Updater-Installer-Debian-Noah0302sTech.sh"
+		javaUpdaterUrl="https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Omada/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh"
 
 		folderVar=Omada
 			fullInstallerFolder=Omada-Full-Installer
 				fullInstaller=Omada-Full-Installer-Deb11-Noah0302sTech.sh
 			subFolderVar=Java-Updater
 				folder1=Updater-Installer
-					bashInstaller=Java-Updater-Installer-Debian-Noah0302sTech.sh
+					bashInstaller=Omada_Java-Updater-Installer_Debian-11.sh
 				folder2=Updater-Executer
-					updaterExecuter=Java-Updater-Debian-Noah0302sTech.sh
+					updaterExecuter=Omada_Java-Updater-Executer.sh_Debian-11.sh
 				cronCheck=Cron-Check.txt
 
 		omadaFolderPath="/home/$SUDO_USER/Noah0302sTech/$folderVar"
@@ -246,14 +246,14 @@ Cron-Check Java-Updater:	ccJavaUpdater
 
 		#----- Move Files
 			start_spinner "Verschiebe Files..."
-					#--- Java-Updater-Installer-Debian-Noah0302sTech.sh
+					#--- Omada_Java-Updater-Installer_Debian-11.sh
 						if [ ! -f $updaterInstallerPath ]; then
 							mv /home/$SUDO_USER/$bashInstaller $updaterInstallerPath > /dev/null 2>&1
 						else
 							echo "Die Datei $updaterInstallerPath ist bereits vorhanden!"
 						fi
 
-					#--- Java-Updater-Debian-Noah0302sTech.sh
+					#--- Omada_Java-Updater-Executer.sh_Debian-11.sh
 						if [ ! -f $updaterExecuterPath ]; then
 							mv /home/$SUDO_USER/$updaterExecuter $updaterExecuterPath > /dev/null 2>&1
 						else
