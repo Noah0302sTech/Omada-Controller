@@ -1,8 +1,7 @@
 ### Omada-Controller
+Automatic Installation of Omada-Controller-Software in Debian
 
-##Automatic Installation of Omada-Controller-Software in Debian
-
-#If you have any Issues, or Questions, please do not hesitate to send me a Message!
+If you have any Issues, or Questions, please do not hesitate to send me a Message!
 
 
 
