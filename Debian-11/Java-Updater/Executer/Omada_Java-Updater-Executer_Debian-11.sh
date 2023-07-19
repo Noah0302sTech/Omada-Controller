@@ -159,7 +159,7 @@
 
 		#--- Refresh Packages
 			start_spinner "Aktualisiere Package-Listen, bitte warten..."
-				aptUpdateVar=$(apt update > /dev/null 2>&1)
+				aptUpdateVar=$(apt-get update 2>&1)
 			stop_spinner $?
 			echo $aptUpdateVar
 
