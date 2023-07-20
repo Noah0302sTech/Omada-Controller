@@ -31,6 +31,16 @@ wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Deb
 ```bash
 https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb
 ```
+### Install Java-Updater when you're promted
+~$ Möchtest du Java-Updater installieren? [y]es|[n]o:
+```bash
+y
+```
+### Configure Cron-Job-Schedule when you're promted (https://crontab.guru/examples.html)
+~$ Passe den Cron-Job an [default Montags 0 Uhr: 0 0 * * 1]:
+```bash
+0 0 * * 1
+```
 
 
 # Folder-Structure
