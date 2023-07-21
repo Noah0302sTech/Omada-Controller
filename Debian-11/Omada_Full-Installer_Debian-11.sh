@@ -165,9 +165,9 @@
 			stop_spinner $?
 
 		#--- Install OpenJDK-8-Headless
-			start_spinner "Installiere OpenJDK-8-JRE-Headless, bitte warten..."
-				DEBIAN_FRONTEND=noninteractive apt install openjdk-8-jre-headless -y > /dev/null 2>&1
-			stop_spinner $?
+			#TODO:	Bash-Segmentation-Fault when writing to /dev/null 2>&1 AND running Spinner Animation
+			echo "Installiere OpenJDK-8-JRE-Headless, bitte warten..."
+				DEBIAN_FRONTEND=noninteractive apt-get install openjdk-8-jre-headless -y > /dev/null 2>&1
 
 		#--- Remove Sid-Main-Repo
 			#-		Note: I remove the Repo here after installing it, so Debian does not upgrade all other Packages to the Unstable-Release.
