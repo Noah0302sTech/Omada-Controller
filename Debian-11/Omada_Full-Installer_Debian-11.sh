@@ -222,7 +222,6 @@
 		#--- Enable MongoDB and show Status
 			start_spinner "Aktiviere Mongo-DB, bitte warten..."
 				systemctl enable mongod --now > /dev/null 2>&1
-				systemctl status mongod > /dev/null 2>&1
 			stop_spinner $?
 
 		echoEnd
