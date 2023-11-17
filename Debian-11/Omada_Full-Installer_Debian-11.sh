@@ -140,6 +140,9 @@
 				#Omada-Package
 				folder3Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3"
 					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
+				#Omada-Updater
+				folder4Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4"
+					folder4File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4File1"
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -282,6 +285,30 @@
 		done
 
 
+
+	#----- Install Omada-Updater
+		echo "----- Omada-Updater -----"
+		while IFS= read -n1 -r -p "Möchtest du Omada-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+		case $REPLY in
+			y)	echo
+				#--- WGET Omada-Updater
+					start_spinner "Downloade Omada-Updater-Installer..."
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+					stop_spinner $?
+					chmod +x Omada-Updater-Installer_Debian-11.sh
+					bash ./Omada-Updater-Installer_Debian-11.sh
+				break;;
+
+			n)  echo
+				break;;
+
+			*)  echo
+				echo "Antoworte mit y oder n";;
+
+		esac
+		done
+
+
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -348,6 +375,14 @@
 						else
 							echo "Ordner $folder3Path bereits vorhanden!"
 						fi
+
+					#--- Folder4
+						if [ ! -d $folder4Path ]; then
+							mkdir $folder4Path > /dev/null 2>&1
+						else
+							echo "Ordner $folder4Path bereits vorhanden!"
+						fi
+	stop_spinner $?
 	stop_spinner $?
 
 #----- Move Files
@@ -385,5 +420,12 @@
 				mv /home/$SUDO_USER/$folder3File1 $folder3File1Path > /dev/null 2>&1
 			else
 				echo "Die Datei $folder3File1Path ist bereits vorhanden!"
+			fi
+		
+		#--- Folder4File1
+			if [ ! -f $folder4File1Path ]; then
+				mv /home/$SUDO_USER/$folder4File1 $folder4File1Path > /dev/null 2>&1
+			else
+				echo "Die Datei $folder4File1Path ist bereits vorhanden!"
 			fi
 	stop_spinner $?
