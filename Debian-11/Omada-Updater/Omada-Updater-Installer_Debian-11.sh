@@ -1,6 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada-Updater-Installer_Debian-11.sh && sudo bash Omada-Updater-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh && sudo bash Omada-Updater-Installer_Debian-11.sh
 
 
 
