@@ -34,10 +34,10 @@ cd /home/$SUDO_USER/Noah0302sTech/Omada-Controller/Debian-11/Omada-Package
 			echo "Gewählte Version: $omada_url"
 
 		#--- Download selected Omada-Version
-			start_spinner "Downloade Omada-Controller, bitte warten..."
+			#start_spinner "Downloade Omada-Controller, bitte warten..."
 				apt install wget -y > /dev/null 2>&1
 				wget "$omada_url" > /dev/null 2>&1
-			stop_spinner $?
+			#stop_spinner $?
 
 		#--- Install downloaded Omada-Version
 			#start_spinner "Installiere Omada-Controller, bitte warten..."
