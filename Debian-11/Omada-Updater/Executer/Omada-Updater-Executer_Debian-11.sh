@@ -16,6 +16,8 @@
 
 
 
+
+
 cd /home/$SUDO_USER/Noah0302sTech/Omada-Controller/Debian-11/Omada-Package
 	#----- Install Omada
 		echo "----- Omada -----"
@@ -45,7 +47,7 @@ cd /home/$SUDO_USER/Noah0302sTech/Omada-Controller/Debian-11/Omada-Package
 			#stop_spinner $?
 			echo
 
-		echoEnd
+
 
 
 
