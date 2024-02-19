@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
-#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 
 #---------- Initial Checks & Functions & Folder-Structure
 	#-------- Checks & Functions
@@ -281,7 +281,7 @@
 			y)	echo
 				#--- WGET Java-Updater
 					start_spinner "Downloade Java-Updater-Installer..."
-						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
 					chmod +x Omada_Java-Updater-Installer_Debian-11.sh
 					bash ./Omada_Java-Updater-Installer_Debian-11.sh
