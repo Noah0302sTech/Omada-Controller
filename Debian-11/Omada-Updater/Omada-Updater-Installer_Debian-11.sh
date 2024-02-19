@@ -187,7 +187,7 @@
 	else
 		start_spinner "Erstelle Alias..."
 			echo "#Omada-Updater
-alias omadaUpdaterExecute='sudo bash $folder4File1Path'
+alias omadaUpdaterExecute='sudo bash $folder4Sub1File1Path'
 "  >> /home/$SUDO_USER/.bashrc
 		stop_spinner $?
 	fi
