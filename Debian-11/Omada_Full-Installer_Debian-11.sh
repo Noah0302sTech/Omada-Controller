@@ -386,7 +386,6 @@
 							echo "Ordner $folder4Path bereits vorhanden!"
 						fi
 	stop_spinner $?
-	stop_spinner $?
 
 #----- Move Files
 	start_spinner "Verschiebe Files..."
