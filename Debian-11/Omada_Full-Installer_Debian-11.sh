@@ -234,9 +234,9 @@
 		echo "----- Omada -----"
 		#--- Prompt user for the Omada download URL or use the default if left blank
 			while true; do
-				read -t 30 -p "Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.9.31): " omada_url
+				read -t 30 -p "Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.13.23): " omada_url
 				if [ -z "$omada_url" ]; then
-					omada_url="https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb"
+					omada_url="https://static.tp-link.com/upload/software/2024/202401/20240112/Omada_SDN_Controller_v5.13.23_linux_x64.deb"
 					break
 				elif [[ $omada_url =~ ^https://static\.tp-link\.com/upload/software/.*\.deb$ ]]; then
 					break
@@ -309,9 +309,12 @@
 		done
 
 
+
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
+
+
 
 #----- Create Folders
 	start_spinner "Erstelle Verzeichnisse..."
@@ -429,3 +432,47 @@
 				echo "Die Datei $folder4File1Path ist bereits vorhanden!"
 			fi
 	stop_spinner $?
+
+
+
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
+
+
+
+#----- Check for Webinterface
+	#--- Fetch the IP
+		IP=$(hostname -I)
+
+	#--- Trim Whitespace
+		trimmedIP=$(echo "$IP" | cut -d ' ' -f 1)
+		portIP="https://"$trimmedIP":8043"
+
+	#--- Loop until the UniFi-Webinterface is accessible
+	while true; do
+		#- Use wget to fetch the UniFi-Webinterface and save the output to a temporary file
+		wget_output=$(wget --no-check-certificate --spider -S "$portIP" 2>&1)
+
+		#- Check if the wget command succeeded
+		if [ $? -eq 0 ]; then
+			# Extract the HTTP status code from wget output
+			http_status=$(echo "$wget_output" | grep "HTTP/" | awk '{print $2}')
+
+			# Check if the HTTP status code is 404
+			if [ "$http_status" == "404" ]; then
+					echo "UniFi-Webinterface $portIP returned a 404 error... Container startet noch!"
+					sleep 5  # Wait for 5 seconds before retrying
+					continue  # Continue the loop
+			else
+					echo
+					echo "UniFi-Webinterface ist nun unter folgender Addresse erreichbar:"
+					echo "$portIP"
+					break  # Break out of the loop if UniFi-Webinterface is accessible
+			fi
+		else
+			echo "UniFi-Webinterface noch nicht erreichbar. Bitte warten..."
+		fi
+		sleep 5
+	done
+	echoEnd
