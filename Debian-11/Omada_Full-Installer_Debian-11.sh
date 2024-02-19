@@ -117,12 +117,12 @@
 				folder2="Cron-Check"
 					folder2File1="Cron-Check.txt"
 				folder3="Omada-Package"
-					folder3File1="Omada_SDN_Controller_*_Linux_x64.deb"
+					folder3File1="Omada_SDN_Controller_"*"_linux_x64.deb"
 				folder4="Omada-Updater"
 					folder4Sub1="Executer"
-						folder1Sub1File1="Omada-Updater-Executer_Debian-11.sh"
+						folder4Sub1File1="Omada-Updater-Executer_Debian-11.sh"
 					folder4Sub2="Installer"
-						folder1Sub2File1="Omada-Updater-Installer_Debian-11.sh"
+						folder4Sub2File1="Omada-Updater-Installer_Debian-11.sh"
 
 		#Omada-Controller
 		repoVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar"
@@ -153,6 +153,8 @@
 					#Installer
 					folder4Sub2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2"
 						folder4Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2/$folder4Sub2File1"
+
+
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
