@@ -198,7 +198,7 @@ alias omadaUpdaterExecute='sudo bash $folder4File1Path'
 
 #----- Create MOTD
 	echo "----- MOTD -----"
-	if grep -q "^Omada-Updater" /etc/motd; then
+	if grep -q "^Omada" /etc/motd; then
 		echo "Der MOTD Eintrag exisitert bereits in /etc/motd"
 	else
 		start_spinner "Passe MOTD an..."
