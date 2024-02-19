@@ -232,13 +232,13 @@ alias omadaJavaUpdaterExecute='sudo bash $folder1Sub1File1Path'
 
 #----- Create MOTD
 	echo "----- MOTD -----"
-	if grep -q "^Omada" /etc/motd; then
+	if grep -q "^Java-Updater Logs" /etc/motd; then
 		echo "Der MOTD Eintrag exisitert bereits in /etc/motd"
 	else
 		start_spinner "Passe MOTD an..."
-			echo "----- Omada -----
-Java-Updater Logs:					omadaJavaUpdaterCC
-Java-Updater manual Execution:	omadaJavaUpdaterExecute
+			echo "----- Java -----
+Java-Updater Logs:              omadaJavaUpdaterCC
+Java-Updater manual Execution:  omadaJavaUpdaterExecute
 " >> /etc/motd
 		stop_spinner $?
 	fi
