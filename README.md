@@ -45,6 +45,8 @@ y
 ~$ Möchtest du Omada-Updater installieren? [y]es|[n]o:
 ```bash
 y
+```
+
 
 
 # Folder-Structure
