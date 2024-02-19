@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada-Updater-Installer_Debian-11.sh && sudo bash Omada-Updater-Installer_Debian-11.sh
-#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh && sudo bash Omada-Updater-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh && sudo bash Omada-Updater-Installer_Debian-11.sh
 
 
 
@@ -160,7 +160,7 @@
 
 	#--- Download Omada-Update-Executer
 		start_spinner "Downloade Omada-Updater-Executer..."
-			wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada-Updater/Executer/Omada-Updater-Executer_Debian-11.sh > /dev/null 2>&1
+			wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada-Updater/Executer/Omada-Updater-Executer_Debian-11.sh > /dev/null 2>&1
 		stop_spinner $?
 
 	#--- Make Omada-Updater.sh executable
