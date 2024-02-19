@@ -431,6 +431,7 @@
 				echo "Die Datei $folder4File1Path ist bereits vorhanden!"
 			fi
 	stop_spinner $?
+	echoEnd
 
 
 
