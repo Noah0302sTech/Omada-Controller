@@ -111,17 +111,20 @@
 			versionVar="Debian-11"
 				fullInstallerFolder="Full-Installer"
 					fullInstaller="Omada_Full-Installer_Debian-11.sh"
-				folder1="Omada-Updater"
+				folder1="Java-Updater"
 					folder1Sub1="Executer"
-						folder1Sub1File1="Omada_Omada-Updater-Executer_Debian-11.sh"
+						folder1Sub1File1="Omada_Java-Updater-Executer_Debian-11.sh"
 					folder1Sub2="Installer"
-						folder1Sub2File1="Omada-Updater-Installer_Debian-11.sh"
+						folder1Sub2File1="Omada_Java-Updater-Installer_Debian-11.sh"
 				folder2="Cron-Check"
 					folder2File1="Cron-Check.txt"
 				folder3="Omada-Package"
-					folder3File1="Omada_SDN_Controller_v5.9.31_Linux_x64.deb"
+					folder3File1="Omada_SDN_Controller_"*"_linux_x64.deb"
 				folder4="Omada-Updater"
-					folder4File1="Omada-Updater-Installer_Debian-11.sh"
+					folder4Sub1="Executer"
+						folder4Sub1File1="Omada-Updater-Executer_Debian-11.sh"
+					folder4Sub2="Installer"
+						folder4Sub2File1="Omada-Updater-Installer_Debian-11.sh"
 
 		#Omada-Controller
 		repoVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar"
@@ -130,7 +133,7 @@
 				#Full-Installer
 				fullInstallerFolderPath="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$fullInstallerFolder"
 					fullInstallerPath="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$fullInstallerFolder/$fullInstaller"
-				#Omada-Updater
+				#Java-Updater
 				folder1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1"
 					#Executer
 					folder1Sub1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder1/$folder1Sub1"
@@ -146,7 +149,12 @@
 					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
 				#Omada-Updater
 				folder4Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4"
-					folder4File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4File1"
+					#Executer
+					folder4Sub1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub1"
+						folder4Sub1File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub1/$folder4Sub1File1"
+					#Installer
+					folder4Sub2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2"
+						folder4Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2/$folder4Sub2File1"
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -179,7 +187,7 @@
 	else
 		start_spinner "Erstelle Alias..."
 			echo "#Omada-Updater
-alias omadaUpdaterExecute='sudo bash $folder4File1Path'
+alias omadaUpdaterExecute='sudo bash $folder4Sub1File1Path'
 "  >> /home/$SUDO_USER/.bashrc
 		stop_spinner $?
 	fi
@@ -190,7 +198,7 @@ alias omadaUpdaterExecute='sudo bash $folder4File1Path'
 
 #----- Create MOTD
 	echo "----- MOTD -----"
-	if grep -q "^Omada-Updater" /etc/motd; then
+	if grep -q "^Omada-Updater manual Execution" /etc/motd; then
 		echo "Der MOTD Eintrag exisitert bereits in /etc/motd"
 	else
 		start_spinner "Passe MOTD an..."

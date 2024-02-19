@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
-#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 
 #---------- Initial Checks & Functions & Folder-Structure
 	#-------- Checks & Functions
@@ -117,7 +117,12 @@
 				folder2="Cron-Check"
 					folder2File1="Cron-Check.txt"
 				folder3="Omada-Package"
-					folder3File1="Omada_SDN_Controller_v5.9.31_Linux_x64.deb"
+					folder3File1="Omada_SDN_Controller_"*"_linux_x64.deb"
+				folder4="Omada-Updater"
+					folder4Sub1="Executer"
+						folder4Sub1File1="Omada-Updater-Executer_Debian-11.sh"
+					folder4Sub2="Installer"
+						folder4Sub2File1="Omada-Updater-Installer_Debian-11.sh"
 
 		#Omada-Controller
 		repoVarPath="/home/$SUDO_USER/Noah0302sTech/$repoVar"
@@ -142,7 +147,14 @@
 					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
 				#Omada-Updater
 				folder4Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4"
-					folder4File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4File1"
+					#Executer
+					folder4Sub1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub1"
+						folder4Sub1File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub1/$folder4Sub1File1"
+					#Installer
+					folder4Sub2Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2"
+						folder4Sub2File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4Sub2/$folder4Sub2File1"
+
+
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -269,7 +281,7 @@
 			y)	echo
 				#--- WGET Java-Updater
 					start_spinner "Downloade Java-Updater-Installer..."
-						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
 					chmod +x Omada_Java-Updater-Installer_Debian-11.sh
 					bash ./Omada_Java-Updater-Installer_Debian-11.sh
@@ -307,6 +319,8 @@
 
 		esac
 		done
+
+
 
 
 
@@ -385,6 +399,18 @@
 						else
 							echo "Ordner $folder4Path bereits vorhanden!"
 						fi
+						#- Folder1Sub1
+							if [ ! -d $folder4Sub1Path ]; then
+								mkdir $folder4Sub1Path > /dev/null 2>&1
+							else
+								echo "Ordner $folder4Sub1Path bereits vorhanden!"
+							fi
+						#- Folder1Sub2
+							if [ ! -d $folder4Sub2Path ]; then
+								mkdir $folder4Sub2Path > /dev/null 2>&1
+							else
+								echo "Ordner $folder4Sub2Path bereits vorhanden!"
+							fi
 	stop_spinner $?
 
 #----- Move Files
@@ -424,12 +450,19 @@
 				echo "Die Datei $folder3File1Path ist bereits vorhanden!"
 			fi
 		
-		#--- Folder4File1
-			if [ ! -f $folder4File1Path ]; then
-				mv /home/$SUDO_USER/$folder4File1 $folder4File1Path > /dev/null 2>&1
-			else
-				echo "Die Datei $folder4File1Path ist bereits vorhanden!"
-			fi
+		#---Folder4
+			#- Folder4Sub1File1
+				if [ ! -f $folder4Sub1File1Path ]; then
+					mv /home/$SUDO_USER/$folder4Sub1File1 $folder4Sub1File1Path > /dev/null 2>&1
+				else
+					echo "Die Datei $folder4Sub1File1Path ist bereits vorhanden!"
+				fi
+			#- Folder4Sub2File1
+				if [ ! -f $folder4Sub2File1Path ]; then
+					mv /home/$SUDO_USER/$folder4Sub2File1 $folder4Sub2File1Path > /dev/null 2>&1
+				else
+					echo "Die Datei $folder4Sub2File1Path ist bereits vorhanden!"
+				fi
 	stop_spinner $?
 	echoEnd
 

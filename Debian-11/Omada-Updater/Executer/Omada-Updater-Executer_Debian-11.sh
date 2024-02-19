@@ -23,9 +23,9 @@ cd /home/$SUDO_USER/Noah0302sTech/Omada-Controller/Debian-11/Omada-Package
 		echo "----- Omada -----"
 		#--- Prompt user for the Omada download URL or use the default if left blank
 			while true; do
-				read -t 30 -p "Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.12.7): " omada_url
+				read -t 30 -p "Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.13.23): " omada_url
 				if [ -z "$omada_url" ]; then
-					omada_url="https://static.tp-link.com/upload/software/2023/202309/20230920/Omada_SDN_Controller_v5.12.7_Linux_x64.deb"
+					omada_url="https://static.tp-link.com/upload/software/2024/202401/20240112/Omada_SDN_Controller_v5.13.23_linux_x64.deb"
 					break
 				elif [[ $omada_url =~ ^https://static\.tp-link\.com/upload/software/.*\.deb$ ]]; then
 					break
