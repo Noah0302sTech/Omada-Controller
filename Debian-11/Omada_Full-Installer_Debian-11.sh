@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
-#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 
 #---------- Initial Checks & Functions & Folder-Structure
 	#-------- Checks & Functions
