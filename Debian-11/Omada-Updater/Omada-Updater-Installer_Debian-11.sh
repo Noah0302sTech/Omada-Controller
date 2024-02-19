@@ -195,7 +195,7 @@ alias omadaUpdaterExecute='sudo bash $folder4File1Path'
 	else
 		start_spinner "Passe MOTD an..."
 			echo "----- Omada -----
-Omada-Updater manual Execution:	omadaOmadaUpdaterExecute
+Omada-Updater manual Execution:	omadaUpdaterExecute
 " >> /etc/motd
 		stop_spinner $?
 	fi
