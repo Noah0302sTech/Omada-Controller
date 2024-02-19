@@ -140,6 +140,9 @@
 				#Omada-Package
 				folder3Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3"
 					folder3File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder3/$folder3File1"
+				#Omada-Updater
+				folder4Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4"
+					folder4File1Path="/home/$SUDO_USER/Noah0302sTech/$repoVar/$versionVar/$folder4/$folder4File1"
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -282,9 +285,36 @@
 		done
 
 
+
+	#----- Install Omada-Updater
+		echo "----- Omada-Updater -----"
+		while IFS= read -n1 -r -p "Möchtest du Omada-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+		case $REPLY in
+			y)	echo
+				#--- WGET Omada-Updater
+					start_spinner "Downloade Omada-Updater-Installer..."
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+					stop_spinner $?
+					chmod +x Omada-Updater-Installer_Debian-11.sh
+					bash ./Omada-Updater-Installer_Debian-11.sh
+				break;;
+
+			n)  echo
+				break;;
+
+			*)  echo
+				echo "Antoworte mit y oder n";;
+
+		esac
+		done
+
+
+
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
+
+
 
 #----- Create Folders
 	start_spinner "Erstelle Verzeichnisse..."
@@ -348,6 +378,13 @@
 						else
 							echo "Ordner $folder3Path bereits vorhanden!"
 						fi
+
+					#--- Folder4
+						if [ ! -d $folder4Path ]; then
+							mkdir $folder4Path > /dev/null 2>&1
+						else
+							echo "Ordner $folder4Path bereits vorhanden!"
+						fi
 	stop_spinner $?
 
 #----- Move Files
@@ -386,4 +423,56 @@
 			else
 				echo "Die Datei $folder3File1Path ist bereits vorhanden!"
 			fi
+		
+		#--- Folder4File1
+			if [ ! -f $folder4File1Path ]; then
+				mv /home/$SUDO_USER/$folder4File1 $folder4File1Path > /dev/null 2>&1
+			else
+				echo "Die Datei $folder4File1Path ist bereits vorhanden!"
+			fi
 	stop_spinner $?
+	echoEnd
+
+
+
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
+#-----	-----#	#-----	-----#	#-----	-----#
+
+
+
+#----- Check for Webinterface
+	#--- Fetch the IP
+		IP=$(hostname -I)
+
+	#--- Trim Whitespace
+		trimmedIP=$(echo "$IP" | cut -d ' ' -f 1)
+		portIP="https://"$trimmedIP":8043"
+
+	#--- Loop until the UniFi-Webinterface is accessible
+	while true; do
+		#- Use wget to fetch the UniFi-Webinterface and save the output to a temporary file
+		wget_output=$(wget --no-check-certificate --spider -S "$portIP" 2>&1)
+
+		#- Check if the wget command succeeded
+		if [ $? -eq 0 ]; then
+			# Extract the HTTP status code from wget output
+			http_status=$(echo "$wget_output" | grep "HTTP/" | awk '{print $2}')
+
+			# Check if the HTTP status code is 404
+			if [ "$http_status" == "404" ]; then
+					echo "UniFi-Webinterface $portIP returned a 404 error... Container startet noch!"
+					sleep 5  # Wait for 5 seconds before retrying
+					continue  # Continue the loop
+			else
+					echo
+					echo "UniFi-Webinterface ist nun unter folgender Addresse erreichbar:"
+					echo "$portIP"
+					break  # Break out of the loop if UniFi-Webinterface is accessible
+			fi
+		else
+			echo "UniFi-Webinterface noch nicht erreichbar. Bitte warten..."
+		fi
+		sleep 5
+	done
+	echoEnd
