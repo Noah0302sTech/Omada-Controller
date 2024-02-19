@@ -450,16 +450,16 @@
 		
 		#---Folder4
 			#- Folder4Sub1File1
-				if [ ! -f $Folder4Sub1File1Path ]; then
-					mv /home/$SUDO_USER/$Folder4Sub1File1 $Folder4Sub1File1Path > /dev/null 2>&1
+				if [ ! -f $folder4Sub1File1Path ]; then
+					mv /home/$SUDO_USER/$folder4Sub1File1 $folder4Sub1File1Path > /dev/null 2>&1
 				else
-					echo "Die Datei $Folder4Sub1File1Path ist bereits vorhanden!"
+					echo "Die Datei $folder4Sub1File1Path ist bereits vorhanden!"
 				fi
 			#- Folder4Sub2File1
-				if [ ! -f $Folder4Sub2File1Path ]; then
-					mv /home/$SUDO_USER/$Folder4Sub2File1 $Folder4Sub2File1Path > /dev/null 2>&1
+				if [ ! -f $folder4Sub2File1Path ]; then
+					mv /home/$SUDO_USER/$folder4Sub2File1 $folder4Sub2File1Path > /dev/null 2>&1
 				else
-					echo "Die Datei $Folder4Sub2File1Path ist bereits vorhanden!"
+					echo "Die Datei $folder4Sub2File1Path ist bereits vorhanden!"
 				fi
 	stop_spinner $?
 	echoEnd
