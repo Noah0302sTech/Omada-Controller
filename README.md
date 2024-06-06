@@ -27,9 +27,9 @@ cd
 wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 ```
 ### Copy Omada-Controller.deb Download-Link from the TP-Link Website and paste it when you're promted (https://www.tp-link.com/de/support/download/omada-software-controller)
-~$ Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.13.23):
+~$ Füge die Download-URL für Omada_SDN_Controller_vX.X.X_Linux_x64.deb hier ein (Leer oder warte 30 Sekunden für v5.13.30.8):
 ```bash
-https://static.tp-link.com/upload/software/2024/202401/20240112/Omada_SDN_Controller_v5.13.23_linux_x64.deb
+https://static.tp-link.com/upload/software/2024/202402/20240227/Omada_SDN_Controller_v5.13.30.8_linux_x64.deb
 ```
 ### Install Java-Updater when you're promted
 ~$ Möchtest du Java-Updater installieren? [y]es|[n]o:
