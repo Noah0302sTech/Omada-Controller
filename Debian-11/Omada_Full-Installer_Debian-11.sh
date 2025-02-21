@@ -5,8 +5,8 @@
 
 
 
-echo "\e[0;32m[~] WARNING! THIS SCRIPT IS OUTDATED AND WILL NOT BE UPDATED! \e[0m"
-echo "Please use the Debian 12 Version of the Script!"
+echo -e "\e[0;32m[~] WARNING! THIS SCRIPT IS OUTDATED AND WILL NOT BE UPDATED! \e[0m"
+echo -e "Please use the Debian 12 Version of the Script!"
 
 
 
