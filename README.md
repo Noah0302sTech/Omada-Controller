@@ -1,4 +1,4 @@
-# Omada-Controller TESTING!!!
+# Omada-Controller aosijdaoisdjasoidjd
 This is an updated Version of my old Repo (https://github.com/Noah0302sTech/Bash-Skripte/tree/master/Omada)!
 
 If you have any Issues, or Questions, please do not hesitate to send me a Message!
