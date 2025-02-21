@@ -5,9 +5,15 @@
 
 
 
-echo -e "\e[0;32m[~] WARNING! THIS SCRIPT IS OUTDATED AND WILL NOT BE UPDATED! \e[0m"
+echo -e "\e[1;31m[!] WARNING! THIS SCRIPT IS OUTDATED AND WILL NOT BE UPDATED! \e[0m"
 echo -e "Please use the Debian 12 Version of the Script!"
-
+	read -p "Do you still want to continue? (y/n): " abortScript
+		if [[ "$abortScript" == "y" || "$abortScript" == "Y" ]]; then
+			echo -e "\e[1;31m[!] Proceeding... \e[0m"
+		else
+			echo -e "\e[0;32mAborting Script... \e[0m"
+			exit 1
+		fi
 
 
 #---------- Initial Checks & Functions & Folder-Structure
