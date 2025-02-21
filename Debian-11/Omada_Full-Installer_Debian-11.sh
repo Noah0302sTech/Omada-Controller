@@ -3,6 +3,13 @@
 #	chmod +x Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 #	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 
+
+
+echo "\e[0;32m[~] WARNING! THIS SCRIPT IS OUTDATED AND WILL NOT BE UPDATED! \e[0m"
+echo "Please use the Debian 12 Version of the Script!"
+
+
+
 #---------- Initial Checks & Functions & Folder-Structure
 	#-------- Checks & Functions
 		#----- Check for administrative privileges
