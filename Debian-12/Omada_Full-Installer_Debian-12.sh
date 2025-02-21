@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	nano Omada_Full-Installer_Debian-12.sh && sudo bash Omada_Full-Installer_Debian-12.sh
-#	wget URLHERE && sudo bash Omada_Full-Installer_Debian-12.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/refs/heads/master/Debian-12/Omada_Full-Installer_Debian-12.sh && sudo bash Omada_Full-Installer_Debian-12.sh
 
 
 
