@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
-#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada_Full-Installer_Debian-11.sh && sudo bash Omada_Full-Installer_Debian-11.sh
 
 #---------- Initial Checks & Functions & Folder-Structure
 	#-------- Checks & Functions
@@ -281,7 +281,7 @@
 			y)	echo
 				#--- WGET Java-Updater
 					start_spinner "Downloade Java-Updater-Installer..."
-						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Java-Updater/Omada_Java-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
 					chmod +x Omada_Java-Updater-Installer_Debian-11.sh
 					bash ./Omada_Java-Updater-Installer_Debian-11.sh
@@ -305,7 +305,7 @@
 			y)	echo
 				#--- WGET Omada-Updater
 					start_spinner "Downloade Omada-Updater-Installer..."
-						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/Testing/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh > /dev/null 2>&1
+						wget https://raw.githubusercontent.com/Noah0302sTech/Omada-Controller/master/Debian-11/Omada-Updater/Omada-Updater-Installer_Debian-11.sh > /dev/null 2>&1
 					stop_spinner $?
 					chmod +x Omada-Updater-Installer_Debian-11.sh
 					bash ./Omada-Updater-Installer_Debian-11.sh
@@ -482,9 +482,9 @@
 		trimmedIP=$(echo "$IP" | cut -d ' ' -f 1)
 		portIP="https://"$trimmedIP":8043"
 
-	#--- Loop until the UniFi-Webinterface is accessible
+	#--- Loop until the Omada-Webinterface is accessible
 	while true; do
-		#- Use wget to fetch the UniFi-Webinterface and save the output to a temporary file
+		#- Use wget to fetch the Omada-Webinterface and save the output to a temporary file
 		wget_output=$(wget --no-check-certificate --spider -S "$portIP" 2>&1)
 
 		#- Check if the wget command succeeded
@@ -494,17 +494,17 @@
 
 			# Check if the HTTP status code is 404
 			if [ "$http_status" == "404" ]; then
-					echo "UniFi-Webinterface $portIP returned a 404 error... Container startet noch!"
+					echo "Omada-Webinterface $portIP returned a 404 error... Container startet noch!"
 					sleep 5  # Wait for 5 seconds before retrying
 					continue  # Continue the loop
 			else
 					echo
-					echo "UniFi-Webinterface ist nun unter folgender Addresse erreichbar:"
+					echo "Omada-Webinterface ist nun unter folgender Addresse erreichbar:"
 					echo "$portIP"
-					break  # Break out of the loop if UniFi-Webinterface is accessible
+					break  # Break out of the loop if Omada-Webinterface is accessible
 			fi
 		else
-			echo "UniFi-Webinterface noch nicht erreichbar. Bitte warten..."
+			echo "Omada-Webinterface noch nicht erreichbar. Bitte warten..."
 		fi
 		sleep 5
 	done
