@@ -224,7 +224,7 @@
 
 #----- Restore the APT-Proxy Settings if they were disabled
 	if [[ "$PROXY_DISABLED" -eq 1 ]]; then
-		read -p "Do you want to restore the APT-APT-Proxy Settings? (y/n): " restore
+		read -p "Do you want to restore the APT-Proxy Settings? (y/n): " restore
 
 		if [[ "$restore" == "y" || "$restore" == "Y" ]]; then
 			echo "Restoring APT-Proxy Settings..."
