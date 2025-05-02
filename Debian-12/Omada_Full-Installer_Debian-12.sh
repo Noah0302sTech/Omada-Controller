@@ -213,7 +213,7 @@
 		#--- Check if the URL is empty and use Fallback if necessary
 			if [[ -z "$OmadaPackageUrl" ]]; then
 				echo "Failed to fetch Omada-Package URL, using Fallback."
-				OmadaPackageUrl="https://static.tp-link.com/upload/software/2025/202501/20250109/Omada_SDN_Controller_v5.15.8.2_linux_x64.deb"
+				OmadaPackageUrl="https://static.tp-link.com/upload/software/2025/202503/20250331/Omada_SDN_Controller_v5.15.20.18_linux_x64.deb"
 			fi
 		wget -qP /tmp/ "$OmadaPackageUrl"
 		stop_spinner $?
