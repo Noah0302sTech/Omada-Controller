@@ -209,7 +209,7 @@
 
 #-----  Installing Omada-Software
 	start_spinner "Downloading the latest Omada-Controller..."
-		OmadaPackageUrl=$(curl -fsSL https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download| grep -oP 'href="\K[^"]+\.deb' | grep 'linux_x64' | head -n 1)
+		OmadaPackageUrl=$(curl -fsSL https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download | grep -oP 'href="\K[^"]+\.deb' | grep 'linux_x64' | head -n 1)
 		#--- Check if the URL is empty and use Fallback if necessary
 			if [[ -z "$OmadaPackageUrl" ]]; then
 				stop_spinner $?
