@@ -109,13 +109,13 @@
 				FILE="/etc/apt/apt.conf.d/30proxy"
 				PROXY_DISABLED=0  # Flag to track if APT-Proxy is NOT present
 
-				if [ -f "$FILE" ]; then
+				if [ -f "$FILE" ] && grep -q '^[^#[:space:]]' "$FILE"; then
 					echo -e "\e[1;31m[!] An APT-Proxy seems to be configured, which might lead to Issues. \e[0m"
 					read -p "Do you want to disable it for now? (y/n): " choice
 
 					if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
 						echo "Disabling APT-Proxy Settings..."
-						sudo sed -i 's/^\([^#]\)/#\1/' "$FILE"
+						mv "$FILE" /etc/apt/apt.conf.d/30proxy.disabled
 						PROXY_DISABLED=1  # Proxy NOT present
 					fi
 				fi
@@ -209,15 +209,17 @@
 
 #-----  Installing Omada-Software
 	start_spinner "Downloading the latest Omada-Controller..."
-		OmadaPackageUrl=$(curl -fsSL https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download | grep -oPi '<a[^>]*href="\K[^"]*Linux_x64.deb[^"]*' | head -n 1)
+		OmadaPackageUrl=$(curl -fsSL https://support.omadanetworks.com/us/product/omada-software-controller/?resourceType=download| grep -oP 'href="\K[^"]+\.deb' | grep 'linux_x64' | head -n 1)
 		#--- Check if the URL is empty and use Fallback if necessary
 			if [[ -z "$OmadaPackageUrl" ]]; then
-				echo "Failed to fetch Omada-Package URL, using Fallback."
+				stop_spinner $?
+				echo -e "\e[1;31m[!] Failed to fetch Omada-Package URL, using Fallback. \e[0m"
+				start_spinner "Downloading the Fallback Omada-Controller..."
 				OmadaPackageUrl="https://static.tp-link.com/upload/software/2025/202503/20250331/Omada_SDN_Controller_v5.15.20.18_linux_x64.deb"
 			fi
 		wget -qP /tmp/ "$OmadaPackageUrl"
 		stop_spinner $?
-	start_spinner "Installing Omada-Controller $(echo $(basename $OmadaPackageUrl) | tr "_" "\n" | sed -n '4p')..."
+	start_spinner "Installing Omada-Controller $(ls /tmp/$(basename "$OmadaPackageUrl") | grep -oP 'v\K[0-9.]+' || echo unknown)..."
 		dpkg -i /tmp/$(basename $OmadaPackageUrl) &> /dev/null > /dev/null 2>&1
 		stop_spinner $?
 	start_spinner "Starting Omada-Controller..."
@@ -233,12 +235,12 @@
 
 		if [[ "$restore" == "y" || "$restore" == "Y" ]]; then
 			echo "Restoring APT-Proxy Settings..."
-			sudo sed -i 's/^#\([^#]\)/\1/' "$FILE"
+			mv /etc/apt/apt.conf.d/30proxy.disabled "$FILE"
 		else
 			echo "APT-Proxy Settings remain disabled."
 		fi
+		echoEnd
 	fi
-	echoEnd
 
 
 
